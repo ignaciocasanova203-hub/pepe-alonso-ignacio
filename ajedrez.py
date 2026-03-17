@@ -151,8 +151,15 @@ class Tablero(tk.Tk):
             f_orig, c_orig = self.seleccion
             pieza = self.matriz[f_orig][c_orig]
             destino = self.matriz[f][c]
+
+            # SOLUCIÓN AL FUEGO AMIGO 
+            if destino and destino.color == pieza.color:
+                self.reset_colores()
+                self.seleccion = None
+                return
             
             if pieza.mov_ok((f_orig, c_orig), (f, c)):
+
                 # Comprobar si el objetivo es un Rey
                 if isinstance(destino, Rey):
                     self.matriz[f][c] = pieza
