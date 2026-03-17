@@ -97,7 +97,6 @@ class Tablero(tk.Tk):
         self.title("Ajedrez - Movimientos")
         self.geometry("600x600")
         
-        #ejec metedos de diseños
         self.botones = {}
         self.crear_tablero_visual()
         self.reiniciar_partida()
@@ -113,19 +112,15 @@ class Tablero(tk.Tk):
     def inicializar_piezas(self):
         orden = [Torre, Caballo, Alfil, Reina, Rey, Alfil, Caballo, Torre]
         for c in range(8):
-            #piezas neg
             self.matriz[0][c] = orden[c]("negro")
             self.matriz[1][c] = Peon("negro")
-            #piezas bla
             self.matriz[6][c] = Peon("blanco")
             self.matriz[7][c] = orden[c]("blanco")
 
     def crear_tablero_visual(self):
         for f in range(8):
             for c in range(8):
-              #colores
                 color_bg = "#eeeed2" if (f + c) % 2 == 0 else "#769656"
-                #creacion de boton
                 btn = tk.Button(
                     self, bg=color_bg, font=("Arial", 32),
                     relief="flat",
@@ -181,14 +176,11 @@ class Tablero(tk.Tk):
             btn.config(bg=color_bg)
 
     def dibujar_piezas_en_botones(self):
-      
-        #Lee la matriz de Pepe y pone los símbolos en los botones de Ignacio
         for f in range(8):
             for c in range(8):
                 pieza = self.matriz[f][c]
                 texto = pieza.simb if pieza else ""
                 self.botones[(f, c)].config(text=texto)
-#lanzamiento
-if __name__ == "__main__":
-    app = Tablero()
-    app.mainloop()
+
+app = Tablero()
+app.mainloop()
