@@ -1,3 +1,51 @@
+import tkinter as tk
+
+# =============================================================
+# 1. PARTE DE PEPE (Importada/Incluida para que el código funcione)
+# =============================================================
+class Pieza:
+    def __init__(self, color):
+        self.color = color
+        self.tipo = "Base"
+        self.simb = " " 
+        self.ha_movido = False 
+
+class Rey(Pieza):
+    def __init__(self, color):
+        super().__init__(color)
+        self.tipo = "Rey"
+        self.simb = "♔" if color == "blanco" else "♚"
+
+class Reina(Pieza):
+    def __init__(self, color):
+        super().__init__(color)
+        self.tipo = "Reina"
+        self.simb = "♕" if color == "blanco" else "♛"
+
+class Alfil(Pieza):
+    def __init__(self, color):
+        super().__init__(color)
+        self.tipo = "Alfil"
+        self.simb = "♗" if color == "blanco" else "♝"
+
+class Caballo(Pieza):
+    def __init__(self, color):
+        super().__init__(color)
+        self.tipo = "Caballo"
+        self.simb = "♘" if color == "blanco" else "♞"
+
+class Torre(Pieza):
+    def __init__(self, color):
+        super().__init__(color)
+        self.tipo = "Torre"
+        self.simb = "♖" if color == "blanco" else "♜"
+
+class Peon(Pieza):
+    def __init__(self, color):
+        super().__init__(color)
+        self.tipo = "Peon"
+        self.simb = "♙" if color == "blanco" else "♟"
+
 # =============================================================
 # IGNACIO 
 # =============================================================
